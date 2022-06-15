@@ -43,3 +43,15 @@
 * This project which is created using this tool will gives us a nice development environment with a development web server which allows us to preview our application in the browser locally and it is updated automatically on code change.
 
 * For this tool we need node.js and npm for the development server and for other things.
+
+## Working of react : 
+
+* With react we build our own custom HTML elements.
+
+* Considered a good practise to put new components in new files so that we have one file per components.
+
+* We don't move the App.js file in the components folder since it plays a different role in our react app. It will be our root component which will be the entry point of our application. All other components will be children of this component.
+
+* ![](2022-06-16-01-12-02.png)
+
+* Common convention to name in upper camel case the name of our components.
