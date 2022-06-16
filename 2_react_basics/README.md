@@ -55,3 +55,41 @@
 * ![](2022-06-16-01-12-02.png)
 
 * Common convention to name in upper camel case the name of our components.
+
+## Components reusablity :
+
+* We can make our components reusable by using parameters and a concept called props in react.
+
+* ![](2022-06-16-15-32-53.png)
+
+* In the above example we have a situation in which a component displays some data but the data is present in App.js and this is good as this makes the component independent of any data that it needs to display.
+
+* Components can't just use data stored in other components but we have a concept called props.
+
+* Which allows us to pass data to the custom component by adding a attribute and inside of that compoment we can get access to these attributes which might have been set on our custom component.
+
+* Just as HTML elements have attributes so do our react components. This concept is just called props in react components.
+
+## Composition :
+
+* Building user interfaces using components which in turn are built using components is called composition.
+
+* We can use our custom component like a WRAPPER COMPONENT using child and className prop.
+
+* Being able to use components as wrapper allows us to make the components less complex and more reusable.
+
+* This is also a part of composition.
+
+## JSX : 
+
+* We are using react dom at many places but we are not using the package react anywhere and this is the case in all the modern react app which are built using create-react-app.
+
+* In many older react projects we might see react being imported where jsx is used. Modern setup just do this by themselves.
+
+* JSX codes is convert to methods which are called on the react object.
+
+## Folder structure :
+
+* We put all the UI related elements in a UI folder.
+
+* We put a feature specific code in the folder of its respective feature.
