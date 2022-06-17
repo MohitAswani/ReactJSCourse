@@ -16,8 +16,8 @@ import App from "./App";
 // The index.html in the public folder is the single HTML file which is in the end loaded by the browser.
 // It is the only HTML file which is being used by this app coz it is an single-page app.
 // This is file which is the entry point , the place where the react-driven user interface should be rendered into.
-// The div will the id root is the div where we want to attach or inject our react-driven user interface.
-// We select that div and then use a method from the react library to tell react that this should be the root of our react application. The main where the react application gets rendered to.
+// The div with the id root is the div where we want to attach or inject our react-driven user interface.
+// We select that div and then use a method from the react library to tell react that this should be the root of our react application. The main div where the react application gets rendered to.
 // Then we store that root object.
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

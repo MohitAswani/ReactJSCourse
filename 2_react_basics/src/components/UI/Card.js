@@ -6,7 +6,7 @@ import "./Card.css";
 
 // To allow it to act like a wrapper we use a special built in prop in react which every component receives. It is the children prop.
 
-// Children is a reserved name and we don't server children prop on a component.
+// Children is a reserved name and we can't set children prop on a component.
 
 // Value of this children prop will be the content between the opening and closing tags of our custom components.
 

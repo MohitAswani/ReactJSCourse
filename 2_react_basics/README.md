@@ -48,13 +48,13 @@
 
 * With react we build our own custom HTML elements.
 
-* Considered a good practise to put new components in new files so that we have one file per components.
+* Considered a good practise to put new components in new files so that we have one file per component.
 
 * We don't move the App.js file in the components folder since it plays a different role in our react app. It will be our root component which will be the entry point of our application. All other components will be children of this component.
 
 * ![](2022-06-16-01-12-02.png)
 
-* Common convention to name in upper camel case the name of our components.
+* It is a common convention to name our components in upper camel case.
 
 ## Components reusablity :
 

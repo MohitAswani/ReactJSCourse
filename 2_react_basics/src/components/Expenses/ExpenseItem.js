@@ -37,7 +37,7 @@ const ExpenseItem = (props) => {
 
   // But out of the box we can't use our custom components like wrappers arround other content.
   return (
-    // Card is our default component which make act like a wrapper.
+    // Card is our default component which we make to act like a wrapper.
 
     // Every default HTML element supports className and other default attributes but our custom components support only what we tell them to support.
     <Card className="expense-item">
