@@ -40,3 +40,37 @@
 * So if we have a data which changes and for which we want to update the web page then we use state becuase a regular variable won't work.
 
 * Also when the state is updated the component for which it is updated is revaluated and drawn on the screen. But the useState function won't be initialized again for that component and hence it will only return the value of state which we updated to and now that original value which was assigned initially.
+
+## Multiple state vs single state :
+
+* In react we can have multiple states in a component and have them update and manage seperately.
+
+* But when our states are related we can have them combined as a object of those different properties and when one changes the whole state is updated.
+
+* It upto us what we prefer.
+
+## Two-way binding :
+
+* We use state in our project instead of using global or local variables becuase we can use something called two-way binding which means that for inputs we just down listen to changes we can also pass new values back into the input so that we can reset the input.
+
+* So this is two way binding since we don't just listen to update events on the input we also feed the state back into the input so that when we change the state we also change the input.
+
+* Two binding is very useful when we are dealing with forms because it allows us to gather user input and change the input fields.
+
+## Child to parent communication component :
+
+* If we want to pass form data from child to the parent component to display it in all the component list then we use the same pattern as we did in updating form input.
+
+* We can pass a function from the parent to the child and then call that function in the child to pass data to the parent component.
+
+## Lifting state up :
+
+* ![](2022-06-18-01-19-52.png)
+
+* We can't directly transfer data from one component to its sibling component as we don't have a direct way of doing that. We can only communicate parent to child and child to parent.
+
+* So we utilize the closert parent component which has direct or indirect access to both child components.
+
+* We are already doing this in the NewExpense component by passing the data received from the ExpenseForm and passing it to the app component.
+
+* So this means to lift data from a child component and then either using it in the parent component or passing it to another child component. 
