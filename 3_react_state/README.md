@@ -5,7 +5,7 @@
 * In react to add an event listener , instead of taking the imperative approach like in vanilla js we add an event listener by going to the JSX element and there we add a special prop. And this prop won't set a value for the element and it start with on.
 
 
-* The problem with this is that it never repeats that and react only goes through this process when the application is initially rendered and thereafter it done.
+* The problem with this is that it react never repeats the process of calling component functions and react only goes through this process when the application is initially rendered and thereafter its done.
 
 * So we need a way of telling react that something changed and a certain component needs to be revaluated. And thats where react introduces state.
 
@@ -27,11 +27,11 @@
 
 * UseState registers some state so some value as a state for the component instance for which it is being called.
 
-* So it will only revalutate the component which the update function is being executed.
+* So it will only revalutate the component for which the update function is being executed.
 
 * We update the value by calling the updating function returned by the useState hook.
 
-* We set the new value like becuause this function not only assigns a new value to this variable but that it is a special variable and it is managed by react somewhere in memory and when we call this updating function , the special variable receives a new value and the component function in which we called and initialized the state will be executed again.
+* We set the new value like this because function not only assigns a new value to this variable but that it is a special variable and it is managed by react somewhere in memory and when we call this updating function , the special variable receives a new value and the component function in which we called and initialized the state will be executed again.
 
 * And then react draws any new changes to the screen.
 
@@ -39,19 +39,19 @@
 
 * So if we have a data which changes and for which we want to update the web page then we use state becuase a regular variable won't work.
 
-* Also when the state is updated the component for which it is updated is revaluated and drawn on the screen. But the useState function won't be initialized again for that component and hence it will only return the value of state which we updated to and now that original value which was assigned initially.
+* Also when the state is updated the component for which it is updated is revaluated and drawn on the screen. But the useState function won't be initialized again for that component and hence it will only return the value of state which we updated to and not that original value which was assigned initially.
 
 ## Multiple state vs single state :
 
 * In react we can have multiple states in a component and have them update and manage seperately.
 
-* But when our states are related we can have them combined as a object of those different properties and when one changes the whole state is updated.
+* But when our states are related we can also have them combined as a object of those different properties and when one changes the whole state is updated.
 
-* It upto us what we prefer.
+* It is upto us what we prefer.
 
 ## Two-way binding :
 
-* We use state in our project instead of using global or local variables becuase we can use something called two-way binding which means that for inputs we just down listen to changes we can also pass new values back into the input so that we can reset the input.
+* We use state in our project instead of using global or local variables becuase we can use something called two-way binding which means that for inputs we dont just listen to changes we can also pass new values back into the input so that we can reset the input.
 
 * So this is two way binding since we don't just listen to update events on the input we also feed the state back into the input so that when we change the state we also change the input.
 
@@ -67,10 +67,24 @@
 
 * ![](2022-06-18-01-19-52.png)
 
-* We can't directly transfer data from one component to its sibling component as we don't have a direct way of doing that. We can only communicate parent to child and child to parent.
+* We can't directly transfer data from one component to its sibling component as we don't have a direct way of doing that. We can only communicate between parent to child and child to parent.
 
-* So we utilize the closert parent component which has direct or indirect access to both child components.
+* So we utilize the closest parent component which has direct or indirect access to both child components.
 
 * We are already doing this in the NewExpense component by passing the data received from the ExpenseForm and passing it to the app component.
 
 * So this means to lift data from a child component and then either using it in the parent component or passing it to another child component. 
+
+## Controlled component :
+
+* Whenever we use two way binding we are controlling a component.
+
+* So a value which is used in the component is passed on to the parent component and is received from the parent component. So both the currently set value and the function which handles the selected value is not part of that component.
+
+* So such a component is only responsible for presenting the UI and then attaching a couple of listeners or props but the real logic recides in the parent component.
+
+## Presentational/Stateless/Dumb vs Stateful/Smart component :
+
+* It basically means that in react we have some components which handle states and some components which don't handle states. The ones which handle states are called stateful or smart components and the ones which don't handle states are called stateless or dumb or presentational components because it doesn't have any internal state and its just there to output some data.
+
+* In most of the react apps we will have more stateless components than stateful components because we want to break our applications in small independent components and most pieces or most components will only focus on outputting some data.

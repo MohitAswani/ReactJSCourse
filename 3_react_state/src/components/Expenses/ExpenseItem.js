@@ -8,17 +8,17 @@ import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
-  const [title, setTitle] = useState(props.title);
+  // const [title, setTitle] = useState(props.title);
 
   // Naming convention is to end with Handler.
 
-  const clickHandler = () => {
-    // This won't work.
+  // const clickHandler = () => {
+  //   // This won't work.
 
-    // We want the component to be revaluated when the button is clicked.
+  //   // We want the component to be revaluated when the button is clicked.
 
-    setTitle("Updated!!!");
-  };
+  //   setTitle("Updated!!!");
+  // };
 
   // We need to react to the button click to change title.
 
@@ -35,10 +35,9 @@ const ExpenseItem = (props) => {
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
-      <button onClick={clickHandler}>Change title</button>
     </Card>
   );
 };

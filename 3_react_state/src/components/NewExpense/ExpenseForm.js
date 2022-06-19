@@ -82,8 +82,8 @@ const ExpenseForm = (props) => {
   // But the issue with this approach is that when we submit the form the whole page reloads because the browser automatically send a request to the server. But we can disable this behivour in the following way.
 
   const submitHandler = (event) => {
-    // This is js function which previous default behaviour.
 
+    // This is js function which prevents default behaviour.
     event.preventDefault();
 
     const expenseData = {
