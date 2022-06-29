@@ -53,7 +53,7 @@ const App = () => {
 
   // When we use jsx this is the method which is called.
 
-  // This method takes 3 element, the element to be built , object which sets the attributes of this element, rest of the arguments content betweeen the tag.
+  // This method takes 3 element, the element to be built , object which sets the attributes of this element, rest of the arguments are content betweeen the tag.
 
   // For custom component we point to the custom component.
 

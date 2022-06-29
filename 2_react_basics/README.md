@@ -6,7 +6,7 @@
 
 * It much easier to build an app using react because we won't have to focus on all the nitty-gritty details and it will be less error prone if we use something like react because we will be able to focus on our core business logic that makes up our application.
 
-* To makes the work simple for us react embraces a concept called components.
+* To make the work simple for us react embraces a concept called components.
 
 * ![](2022-06-15-23-30-24.png)
 
@@ -16,7 +16,7 @@
 
 * ![](2022-06-15-23-36-11.png)
 
-* These concepts are not native to react rather they are used in every programming language through the user of functions.
+* These concepts are not native to react rather they are used in every programming language through the use of functions.
 
 * React takes the concept of function and converts it to the world of front-end web.
 
@@ -30,7 +30,7 @@
 
 * React uses something which is called a declarative approach for building components, it basically means that with react we will not tell react that a certain HTML element should be created and inserted in a specific place on the user interface as we would be doing it will vanilla JS.
 
-* Instead with react we will always define the desired end state, the target state or possibly also different target states. Then it reacts job to determine which elements actually need to be added or removed or updated on the page.
+* Instead with react we will always define the desired end state, the target state or possibly also different target states. Then its reacts job to determine which elements actually need to be added or removed or updated on the page.
 
 * We don't write concrete DOM manipulation code in our components, we just define the desired end state and under which condition which state will be used.
 
@@ -74,7 +74,7 @@
 
 * Building user interfaces using components which in turn are built using components is called composition.
 
-* We can use our custom component like a WRAPPER COMPONENT using child and className prop.
+* We can use our custom component like a WRAPPER COMPONENT using children and className prop.
 
 * Being able to use components as wrapper allows us to make the components less complex and more reusable.
 

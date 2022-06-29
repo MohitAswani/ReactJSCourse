@@ -12,7 +12,8 @@ import "./Card.css";
 
 // Every default HTML element supports className and other default attributes but our custom components support only what we tell them to support.
 
-// So make the className attribute support className we need to add all those class names to our cards className.
+// So to make the className attribute support className we need to add all those class names to our cards className.
+
 const Card = (props) => {
   // Anything we receive as a constant to the className attribute is added to this classes constant.
 
