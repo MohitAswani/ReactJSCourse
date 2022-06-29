@@ -5,7 +5,7 @@
 * In react to add an event listener , instead of taking the imperative approach like in vanilla js we add an event listener by going to the JSX element and there we add a special prop. And this prop won't set a value for the element and it start with on.
 
 
-* The problem with this is that it react never repeats the process of calling component functions and react only goes through this process when the application is initially rendered and thereafter its done.
+* The problem with this is that react never repeats the process of calling component functions and react only goes through this process when the application is initially rendered and thereafter its done.
 
 * So we need a way of telling react that something changed and a certain component needs to be revaluated. And thats where react introduces state.
 
@@ -82,6 +82,8 @@
 * So a value which is used in the component is passed on to the parent component and is received from the parent component. So both the currently set value and the function which handles the selected value is not part of that component.
 
 * So such a component is only responsible for presenting the UI and then attaching a couple of listeners or props but the real logic recides in the parent component.
+
+* Example of such a component is ExpenseFilter.
 
 ## Presentational/Stateless/Dumb vs Stateful/Smart component :
 
