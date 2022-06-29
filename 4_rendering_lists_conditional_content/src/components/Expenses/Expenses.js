@@ -28,7 +28,7 @@ const Expenses = (props) => {
 
   // To fix this we need to have a special prop called the key prop.
 
-  // Its a prop which we can add inside of any component no matter if its a custom component or a pre-built HTML element. If we add it then it help react identify the individual items and for that we need to set a unique value per list item.
+  // Its a prop which we can add inside of any component no matter if its a custom component or a pre-built HTML element. If we add it then it helps react identify the individual items and for that we need to set a unique value per list item.
 
   const filteredExpenses = props.expenses.filter((exp) => {
     return exp.date.getFullYear().toString() === filterYear.toString();
@@ -61,7 +61,7 @@ const Expenses = (props) => {
               />
             );
           })} */}
-          <ExpensesChart expenses={filteredExpenses} />
+        <ExpensesChart expenses={filteredExpenses} />
         <ExpensesList expenses={filteredExpenses} />
       </Card>
     </div>
