@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 import Button from "../../UI/Button/Button";
-import "./CourseInput.css";
+import styles from "./CourseInput.module.css";
 
 // So we also use the & symbol for nested selectors.
 
@@ -11,32 +11,32 @@ import "./CourseInput.css";
 
 // So we can either set the classNames dynamically or use another feature provided by styled components which is that we can add props to our components and utelize those props where we set the styles.
 
-const FormControl = styled.div`
-  margin: 0.5rem 0;
+// const FormControl = styled.div`
+//   margin: 0.5rem 0;
 
-  & label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-    color: ${props=>(props.invalid?'red':'black')};
-  }
+//   & label {
+//     font-weight: bold;
+//     display: block;
+//     margin-bottom: 0.5rem;
+//     color: ${props=>(props.invalid?'red':'black')};
+//   }
 
-  & input {
-    display: block;
-    width: 100%;
-    border: 1px solid ${props=>(props.invalid?'red':'#ccc')};
-    font: inherit;
-    line-height: 1.5rem;
-    padding: 0 0.25rem;
-    background: ${props=>(props.invalid?'#ffd7d7':'transparent')};
-  }
+//   & input {
+//     display: block;
+//     width: 100%;
+//     border: 1px solid ${props=>(props.invalid?'red':'#ccc')};
+//     font: inherit;
+//     line-height: 1.5rem;
+//     padding: 0 0.25rem;
+//     background: ${props=>(props.invalid?'#ffd7d7':'transparent')};
+//   }
 
-  & input:focus {
-    outline: none;
-    background: #fad0ec;
-    border-color: #8b005d;
-  }
-`;
+//   & input:focus {
+//     outline: none;
+//     background: #fad0ec;
+//     border-color: #8b005d;
+//   }
+// `;
 
 const CourseInput = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
@@ -65,13 +65,28 @@ const CourseInput = (props) => {
 
   // We set the dynamic class using ``. And we can repeat the same thing using multiple classes.
 
+  // // STYLES COMPONENT FOR FORM
+  // return (
+  //   <form onSubmit={formSubmitHandler}>
+  //     {/* <FormControl className={`${!isValid ? "invalid" : ""}`}> */}
+  //     <FormControl invalid={!isValid}>
+  //       <label>Course Goal</label>
+  //       <input type="text" onChange={goalInputChangeHandler} />
+  //     </FormControl>
+  //     <Button type="submit">Add Goal</Button>
+  //   </form>
+  // );
+
+  // For accessing the properties with - we can use [] syntax for properties.
+
+  // To add dynamic classes we add back ticks ``.
+
   return (
     <form onSubmit={formSubmitHandler}>
-      {/* <FormControl className={`${!isValid ? "invalid" : ""}`}> */}
-      <FormControl invalid={!isValid}>
+      <div className={`${styles['form-control']} ${(!isValid)?styles.invalid:''}`}>
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
-      </FormControl>
+      </div>
       <Button type="submit">Add Goal</Button>
     </form>
   );
