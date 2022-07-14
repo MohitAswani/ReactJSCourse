@@ -41,7 +41,7 @@ const ExpenseForm = (props) => {
 
     // And when we call this function we also need to set the two other values or else we will simply lose them.
 
-    // To take the previous values we use the spread operator which pulls out all the properties and then sets them as we wanted and then overides the enteredTitle.
+    // To take the previous values we use the spread operator which pulls out all the properties and then set them as we wanted and then overides the enteredTitle.
 
     // The issue with updating the state like this is that we are depending on the previous state snapshot to copy in the existing values.
 

@@ -44,6 +44,8 @@
 
 * For this tool we need node.js and npm for the development server and for other things.
 
+* To create the react app run `npx create-react-app app-name` in the terminal.
+
 ## Working of react : 
 
 * With react we build our own custom HTML elements.
