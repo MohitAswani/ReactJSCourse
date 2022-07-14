@@ -5,7 +5,7 @@ import Card from "./Card";
 import Button from "./Button";
 import classes from "./ErrorModal.module.css";
 
-// We can have this component in a different file it we use it in multiple components.
+// We can have this component in a different file if we use it in multiple components.
 const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onConfirm} />;
 };
