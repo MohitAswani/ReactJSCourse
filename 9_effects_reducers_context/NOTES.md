@@ -78,8 +78,94 @@
 
 * So we use useReducer to manage the state and combine the multiple states into one state.
 
-* ![](2022-07-15-14-39-45.png)
+* ![](2022-07-15-14-39-45.png) 
 
-* In use useReducer we use the dispatch function to update the state but not directly. We use the dispatch function to call the reducer function which get the previous state and the action and returns the new state.
+* useReducer also returns an array to us and the first element in the array is the state and second element is the dispatch function.
 
+* dispatch function will help us update our statue but instead of setting a new state value it allows us to dispatch an action and the action will be consumed by the reducer function.
 
+* We use the dispatch function to call the reducer function which get the previous state and the action and returns the new updated state.
+
+* We call also set the initial state or use a initial function to do so if our state is complex.
+
+## useState vs useReducer:
+
+* ![](2022-07-16-10-03-28.png)
+
+* There is no hard rule and we can certainly handle cases where useReducer will be good with useEffect and useState.
+
+* On the other hand we should not always use useReducer because often that will be overkill if we have a simple state and using it might be overkill.
+
+## Context API :
+
+* Another problem we might face in a lot of react app is when we are passing a lot of data using props.
+
+* Also there are many cases in which we just pass in some data to a component to just forward it to another component and in bigger apps this chain of forwarding can get very long.
+
+* ![](2022-07-16-10-13-24.png)
+
+* Above is an example of a chain of forwarding.
+
+* ![](2022-07-16-10-15-43.png)
+
+* We have a component wide behind the scenes state storage built into react , we have a concept called react context and this allows us to trigger an action in the component wide state storage and then directly pass that to the component that is interested without building forwarding chains.
+
+* So first we provide this context by adding the provider in the parent components.
+
+* Secondly we have the listening part , to get access to our value and we can do that in two ways :
+    1) By using auth-context consumer.
+
+    2) By using react-hook.
+
+* Using auth-context consumer :
+    * Consumer take in a function and it will give the value of the context as an argument.
+
+    * And in that function we should return our JSX code which should have access to the data. We use our context object in this JSX code to access the component wide state storage.
+
+    * ![](2022-07-16-11-16-02.png)
+
+    * ![](2022-07-16-11-17-13.png)
+
+    * But if we do so we get an error the reason being that we do have an default value in our auth-context but that default value will only be consumed if we consume it without having a provider.
+
+    * But we use context for values which can change but that is only possible with a provider.
+
+    * To make it work we pass in a value prop to the provider and we pass in the default value. And now we can change our provider with the new value being passed down every component that is listening to the context.
+
+    * ![](2022-07-16-11-19-36.png)
+
+* Using the useContext hook:
+
+    * Allow us to use the context.
+
+    * We call the function and pass in the pointer to the context we want to use.
+
+    * And we get back the context object.
+
+* We can also pass function using the context.
+
+* The component in which we directly use the data we still use props.
+
+* In most cases we use props to pass in data to a component. We only use context only when there are multiple components that are just forwarding the data to another component.
+
+* Also we can move all the code related managing in the loggedIn state along with the login and logout functions to the context and then wrap our App component in the new AuthContextProvider component wee build in the auth-context file.
+
+* And we have central place for state management which is the auth-context file.
+
+## React context limitations:
+
+* ![](2022-07-16-13-31-09.png)
+
+## Rules of Hooks :
+
+* We are only allowed to use hooks in the function component or custom hooks.
+
+* We are not allowed to use hooks in top level of the component function. Not inside a callback or a nested function.
+
+* Add anything we use inside a useEffect as a dependency. One exception to this rule is that we should not add the state updating functions of useState or useReducer as dependencies since they are guaranteed by react to never change.
+
+* ![](2022-07-16-13-35-49.png)
+
+## useImperativeHandle hook : 
+
+* We use the useImperativeHandle hook which allows us to use this component or functionalities from inside this component imperatively which simply means that not through the regular state props management but by directly calling something in the component programatically.
