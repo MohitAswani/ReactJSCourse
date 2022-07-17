@@ -86,7 +86,7 @@
 
 * We use the dispatch function to call the reducer function which get the previous state and the action and returns the new updated state.
 
-* We call also set the initial state or use a initial function to do so if our state is complex.
+* We can also set the initial state or use a initial function to do so if our state is complex.
 
 ## useState vs useReducer:
 
@@ -160,7 +160,7 @@
 
 * We are only allowed to use hooks in the function component or custom hooks.
 
-* We are not allowed to use hooks in top level of the component function. Not inside a callback or a nested function.
+* We are only allowed to use hooks in top level of the component function. Not inside a callback or a nested function.
 
 * Add anything we use inside a useEffect as a dependency. One exception to this rule is that we should not add the state updating functions of useState or useReducer as dependencies since they are guaranteed by react to never change.
 
@@ -169,3 +169,23 @@
 ## useImperativeHandle hook : 
 
 * We use the useImperativeHandle hook which allows us to use this component or functionalities from inside this component imperatively which simply means that not through the regular state props management but by directly calling something in the component programatically.
+
+* Simply defined we cannot call function defined inside a component using refs without using the useImperativeHandle hook.
+
+* For the component for which we want to call the function on we add the useImperativeHandle hook to the component.
+
+* We call useImperativeHandle and pass two parameters to it.
+
+* First argument is something we get from the component argument list (next to props) which is a ref. 
+
+* This ref is set from outside and to make sure that this ref can be set and is also available we need to wrap it in React.forwardRef.
+
+* Forward ref takes in a reaction component function and returns a component which is capable of being bound to a ref.
+
+* Second parameter is function which returns an object which contains all the field we want to access from outside the function.
+
+* ![](2022-07-17-13-31-54.png)
+
+* We will only be able to call the function we expose in the useImperativeHandle hook.
+
+* ![](2022-07-17-13-36-48.png)
