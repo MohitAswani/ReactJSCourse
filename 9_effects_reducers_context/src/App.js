@@ -11,7 +11,7 @@ function App() {
 
   // If we use the following way to retrieve logged in status it will create an infinite loop since we are changing a state which will call this function again and again.
 
-  // And that is why we need useEffect which will allow us to control which this function runs.
+  // And that is why we need useEffect which will allow us to control when this function runs.
 
   // const storedUserLoggedIn=localStorage.getItem("isLoggedIn");
 
@@ -24,7 +24,7 @@ function App() {
 
   // And if we pass no dependencies it will run only when the component is evaluated initially.
 
-  // Also this is a side effect side it doesn't change the ui directly.
+  // Also this is a side effect since it doesn't change the ui directly.
   // useEffect(() => {
   //   const storedUserLoggedIn = localStorage.getItem("isLoggedIn");
 
