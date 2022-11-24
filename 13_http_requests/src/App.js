@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import MoviesList from "./components/MoviesList";
+import AddMovie from "./components/AddMovie";
 import "./App.css";
 
 function App() {
@@ -8,39 +9,57 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchMovieHandler = useCallback(async () => {
+  const fetchMoviesHandler = useCallback(async () => {
     setIsLoading(true);
     setError(null);
-
     try {
-      const response = await fetch("https://swapi.dev/api/films/");
-
+      const response = await fetch(
+        "https://react-http-3f777-default-rtdb.firebaseio.com/movies.json"
+      );
       if (!response.ok) {
-        throw new Error("Something went wrong");
+        throw new Error("Something went wrong!");
       }
 
-      const responseData = await response.json();
+      const data = await response.json();
 
-      const transMovies = responseData.results.map((moviesData) => {
-        return {
-          id: moviesData.episode_id,
-          title: moviesData.title,
-          openingText: moviesData.opening_crawl,
-          releaseDate: moviesData.release_date,
-        };
-      });
+      const loadedMovies = [];
 
-      setMovies(transMovies);
-    } catch (err) {
-      setError(err.message);
+      for (const key in data) {
+        loadedMovies.push({
+          id: key,
+          title: data[key].title,
+          openingText: data[key].openingText,
+          releaseDate: data[key].releaseDate,
+        });
+      }
+      
+      setMovies(loadedMovies);
+    } catch (error) {
+      setError(error.message);
     }
-
     setIsLoading(false);
   }, []);
 
   useEffect(() => {
-    fetchMovieHandler();
-  }, [fetchMovieHandler]);
+    fetchMoviesHandler();
+  }, [fetchMoviesHandler]);
+
+  const addMovieHandler = async (movie) => {
+    const response = await fetch(
+      "https://react-http-3f777-default-rtdb.firebaseio.com/movies.json",
+      {
+        method: "POST",
+        body: JSON.stringify(movie),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const responseData = response.json();
+
+    console.log(responseData);
+  };
 
   let content = <p>Found no movies.</p>;
 
@@ -59,7 +78,10 @@ function App() {
   return (
     <React.Fragment>
       <section>
-        <button onClick={fetchMovieHandler}>Fetch Movies</button>
+        <AddMovie onAddMovie={addMovieHandler} />
+      </section>
+      <section>
+        <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
       <section>{content}</section>
     </React.Fragment>
